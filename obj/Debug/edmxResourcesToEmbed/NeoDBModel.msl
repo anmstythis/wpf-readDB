@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище neoCorpModelContainer" CdmEntityContainer="neoCorpEntities">
+    <EntitySetMapping Name="corpus">
+      <EntityTypeMapping TypeName="neoCorpModel.corpus">
+        <MappingFragment StoreEntitySet="corpus">
+          <ScalarProperty Name="ID_corp" ColumnName="ID_corp" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="speciality" ColumnName="speciality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staff">
+      <EntityTypeMapping TypeName="neoCorpModel.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="ID_staff" ColumnName="ID_staff" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="post_ID" ColumnName="post_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staffpost">
+      <EntityTypeMapping TypeName="neoCorpModel.staffpost">
+        <MappingFragment StoreEntitySet="staffpost">
+          <ScalarProperty Name="ID_post" ColumnName="ID_post" />
+          <ScalarProperty Name="postname" ColumnName="postname" />
+          <ScalarProperty Name="corp_ID" ColumnName="corp_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

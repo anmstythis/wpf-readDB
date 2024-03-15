@@ -1,0 +1,16 @@
+﻿<Window x:Class="lab1.EFWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab1"
+        mc:Ignorable="d"
+        Title="EntityFramework" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="baseGrid"/>
+        <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="corpButton" Content="Корпус" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Height="52" Width="123" Click="corpButton_Click"/>
+        <Button x:Name="postButton" Content="Должность" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="52" Width="123" Click="postButton_Click"/>
+        <Button x:Name="staffButton" Content="Сотрудники" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="52" Width="123" Click="staffButton_Click"/>
+    </Grid>
+</Window>

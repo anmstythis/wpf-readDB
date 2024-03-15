@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище neoCorpModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="corpus">
+    <Key>
+      <PropertyRef Name="ID_corp" />
+    </Key>
+    <Property Name="ID_corp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="speciality" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="ID_staff" />
+    </Key>
+    <Property Name="ID_staff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="surname" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="middlename" Type="varchar" MaxLength="80" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="post_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="staffpost">
+    <Key>
+      <PropertyRef Name="ID_post" />
+    </Key>
+    <Property Name="ID_post" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="postname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="corp_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__staff__post_ID__3D5E1FD2">
+    <End Role="staffpost" Type="Self.staffpost" Multiplicity="1" />
+    <End Role="staff" Type="Self.staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staffpost">
+        <PropertyRef Name="ID_post" />
+      </Principal>
+      <Dependent Role="staff">
+        <PropertyRef Name="post_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__staffpost__corp___398D8EEE">
+    <End Role="corpus" Type="Self.corpus" Multiplicity="1" />
+    <End Role="staffpost" Type="Self.staffpost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="corpus">
+        <PropertyRef Name="ID_corp" />
+      </Principal>
+      <Dependent Role="staffpost">
+        <PropertyRef Name="corp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище neoCorpModelContainer">
+    <EntitySet Name="corpus" EntityType="Self.corpus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="staff" EntityType="Self.staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="staffpost" EntityType="Self.staffpost" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__staff__post_ID__3D5E1FD2" Association="Self.FK__staff__post_ID__3D5E1FD2">
+      <End Role="staffpost" EntitySet="staffpost" />
+      <End Role="staff" EntitySet="staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK__staffpost__corp___398D8EEE" Association="Self.FK__staffpost__corp___398D8EEE">
+      <End Role="corpus" EntitySet="corpus" />
+      <End Role="staffpost" EntitySet="staffpost" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
