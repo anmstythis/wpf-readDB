@@ -5,11 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab1"
         mc:Ignorable="d"
-        Title="DataSet" Height="450" Width="800">
+        Title="EntityFramework" Height="450" Width="800">
     <Grid>
-        <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="corpButton" Content="Корпус" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Height="52" Width="123" Click="corpButton_Click"/>
-        <Button x:Name="postButton" Content="Должность" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="52" Width="123" Click="postButton_Click"/>
-        <Button x:Name="staffButton" Content="Сотрудники" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="52" Width="123" Click="staffButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="290*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="baseGrid" Grid.ColumnSpan="3" Grid.Row="1" />
+        <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="1"/>
+        <Button x:Name="corpButton" Content="Корпус" Grid.Column="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="corpButton_Click"/>
+        <Button x:Name="postButton" Content="Должность" Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="postButton_Click"/>
+        <Button x:Name="staffButton" Content="Сотрудники" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="staffButton_Click"/>
+        <Button x:Name="addButton" Content="Добавить" Grid.Row="4" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="addButton_Click"/>
+        <Button x:Name="changeButton" Content="Изменить" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="changeButton_Click"/>
+        <Button x:Name="deleteButton" Content="Удалить" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="deleteButton_Click"/>
+        <TextBox x:Name="txtbx"  Grid.Row="2"/>
+        <TextBox x:Name="txtbx1"  Grid.Row="2" Grid.Column="1"/>
+        <TextBox x:Name="txtbx2"  Grid.Row="3"/>
+        <TextBox x:Name="txtbx3"  Grid.Row="3" Grid.Column="1"/>
+        <ComboBox x:Name="forKey" Grid.Row="2" Grid.Column="2"/>
     </Grid>
 </Window>
